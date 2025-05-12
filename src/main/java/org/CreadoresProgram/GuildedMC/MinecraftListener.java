@@ -10,6 +10,7 @@ import cn.nukkit.utils.TextFormat;
 import cn.nukkit.lang.TranslationContainer;
 import cn.nukkit.lang.TextContainer;
 import cn.nukkit.Server;
+import cn.nukkit.Player;
 
 public class MinecraftListener implements Listener {
     public MinecraftListener(){
@@ -37,12 +38,12 @@ public class MinecraftListener implements Listener {
             if(message.trim().isEmpty()){
                 return;
             }
-            Main.g4jclient.getChatMessageManager().createChannelMessage(Main.config.getString("channelId"), Main.config.getString("deathMsg").replace("%username%", TextFormat.clean(event.getPlayer().getName())).replace("%deathMsg%", TextFormat.clean(message)));
+            Main.g4jclient.getChatMessageManager().createChannelMessage(Main.config.getString("channelId"), Main.config.getString("deathMsg").replace("%username%", TextFormat.clean(((Player) event.getEntity()).getName())).replace("%deathMsg%", TextFormat.clean(message)));
         }
     }
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void onPlayerChat(PlayerChatEvent event) {
-        String message = e.getMessage().replace("@", "[at]");
+        String message = event.getMessage().replace("@", "[at]");
         if(Main.messageFilterPattern != null){
             message = Main.messageFilterPattern.matcher(message).replaceAll(Main.config.getString("messageFilterReplace"));
         }
