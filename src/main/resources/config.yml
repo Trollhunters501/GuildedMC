@@ -1,0 +1,48 @@
+# ApiKey for the Bot
+apiKey: YourAPI
+# chat channel id
+channelId: YourChannelID
+
+# The prefix for the Guilded users
+prefixGuilded: "[Guilded User] %username%: "
+# The prefix for the Minecrafter players
+prefixMine: "%username%: "
+# The prefix for the Bot
+prefixCommand: "MC!"
+
+# enable ip command
+enableIpCommand: true
+serverIp: "YourServerIP"
+serverPort: "19132"
+# enable players command
+enablePlayerListCommand: true
+# guilded command in Minecraft
+guildedCommand: true
+guildedCommandMessage: "Join our Guilded server at §e<put your invite here>§f!"
+
+# Msg to send when the server is starting
+isStartingMsg: true
+startingMsg: "The server is starting, please wait..."
+# Msg to send when the server is ready
+isReadyMsg: true
+readyMsg: "**✅ The server is ready to play!**"
+# Msg to send when the server is stopping
+isStoppingMsg: true
+stoppingMsg: "The server is stopping, please wait..."
+# Msg to send when the server is stopped
+isStoppedMsg: true
+stoppedMsg: "**❌ The server is stopped!**"
+# enable join/leave messages to guilded
+isJoinLeaveMsg: true
+joinMsg: "**➕ %username% has joined the server!**"
+leaveMsg: "**➖ %username% has left the server!**"
+#enable death messages to guilded
+isDeathMsg: true
+deathMsg: "**💀 %deathMsg%**"
+
+# allow bots messages
+allowBotMsg: true
+# filtrer regex
+# anti spam
+messageFilterRegex: (?i)guilded.*?\..*?\/|http.*?\:.*?\/\/
+messageFilterReplace: "<link>"

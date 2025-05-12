@@ -1,0 +1,7 @@
+name: GuildedMC
+main: org.CreadoresProgram.GuildedMC.Main
+version: "1.0.0"
+api: ["1.0.0"]
+author: Creadores Program
+description: Sync Guilded chat with your Nukkit server
+website: https://github.com/Creadores-Program/GuildedMC
