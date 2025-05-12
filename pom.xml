@@ -39,6 +39,7 @@
             <groupId>vip.floatationdevice</groupId>
             <artifactId>guilded4j</artifactId>
             <version>0.9.15</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>
