@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 public class Main extends PluginBase {
     private static Main instance;
-    private static G4JClient g4jclient;
+    public static G4JClient g4jclient;
     public static Config config;
     public static Pattern messageFilterPattern;
 
