@@ -50,7 +50,7 @@ public class GuildedListener {
                 return;
             }
         }
-        Server.getInstance().broadcastMessage(Main.config.getString("prefixGuilded").replace("%username%", Main.guilded4j.getMemberManager().getServerMember(message.getServerId(), message.getCreatorId().getName())) + message.getContent());
+        Server.getInstance().broadcastMessage(Main.config.getString("prefixGuilded").replace("%username%", Main.g4jclient.getMemberManager().getServerMember(message.getServerId(), message.getCreatorId()).getName()) + message.getContent());
     }
     @Subscribe
     public void onGuildedWelcome(GuildedWebSocketWelcomeEvent event) {
