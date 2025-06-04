@@ -26,6 +26,10 @@
             <id>floatationdevice</id>
             <url>https://maven.floatationdevice.vip/</url>
         </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -40,6 +44,11 @@
             <artifactId>guilded4j</artifactId>
             <version>0.9.15</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.Trollhunters501</groupId>
+            <artifactId>FaceImageMC</artifactId>
+            <version>0.1.0</version>
         </dependency>
     </dependencies>
     <build>
@@ -56,7 +65,7 @@
                         <goal>unpack-dependencies</goal>
                     </goals>
                     <configuration>
-                        <includeGroupIds>vip.floatationdevice, cn.hutool, org.java-websocket</includeGroupIds>
+                        <includeGroupIds>vip.floatationdevice, cn.hutool, org.java-websocket, com.github.Trollhunters501</includeGroupIds>
                         <outputDirectory>${project.build.directory}/classes</outputDirectory>
                     </configuration>
                 </execution>

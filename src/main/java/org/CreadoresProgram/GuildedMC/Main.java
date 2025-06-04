@@ -5,14 +5,17 @@ import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 
 import vip.floatationdevice.guilded4j.G4JClient;
+import vip.floatationdevice.guilded4j.object.Webhook;
 
 import java.util.regex.Pattern;
+import java.util.Map;
 
 public class Main extends PluginBase {
     private static Main instance;
     public static G4JClient g4jclient;
     public static Config config;
     public static Pattern messageFilterPattern;
+    private MinecraftListener minecraftListener;
 
     @Override
     public void onLoad() {
@@ -30,7 +33,8 @@ public class Main extends PluginBase {
     }
     @Override
     public void onEnable() {
-        this.getServer().getPluginManager().registerEvents(new MinecraftListener(), this);
+        this.minecraftListener = new MinecraftListener();
+        this.getServer().getPluginManager().registerEvents(this.minecraftListener, this);
         if(config.getBoolean("guildedCommand")){
             getServer().getCommandMap().register("guilded", new GuildedCommand());
         }
@@ -44,6 +48,11 @@ public class Main extends PluginBase {
     public void onDisable() {
         if(config.getBoolean("isStoppingMsg")){
             g4jclient.getChatMessageManager().createChannelMessage(config.getString("channelId"), config.getString("stoppingMsg"));
+        }
+        for(Map.Entry<String, Object[]> entry : this.minecraftListener.webhookPlayers.entrySet()){
+            Object[] data = entry.getValue();
+            Webhook webhook = (Webhook) data[1];
+            g4jclient.getWebhookManager().deleteWebhook(webhook.getServerId(), webhook.getId());
         }
         getLogger().info("GuildedMC is disabled!");
         if(config.getBoolean("isStoppedMsg")){
