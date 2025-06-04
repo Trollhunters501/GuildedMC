@@ -77,14 +77,19 @@ public class MinecraftListener implements Listener {
         if(message.trim().isEmpty()){
             return;
         }
-        String msgN = Main.config.getString("chatMsg").replace("%username%", TextFormat.clean(event.getPlayer().getName())) + TextFormat.clean(message, true);
+        String msgN = TextFormat.clean(message, true);
         Map<String, Object> payload = new HashMap<>();
         payload.put("content", msgN);
         payload.put("avatar_url", "attachment://avatar.png");
+        try{
         Jsoup.connect((String) webhookPlayers.get(event.getPlayer().getName())[0]).userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0")
             .ignoreContentType(true).ignoreHttpErrors(true)
             .data("file", "avatar.png", avatarPlayers.get(event.getPlayer().getName()), "image/png")
             .data("payload_json", gson.toJson(payload)).execute();
+        }catch(Exception e){
+            e.printStackTrace();
+            Main.g4jclient.getChatMessageManager().createChannelMessage(Main.config.getString("channelId"), Main.config.getString("chatMsg").replace("%username%", TextFormat.clean(event.getPlayer().getName())) + TextFormat.clean(message, true));
+        }
     }
 
     private static String textFromContainer(TextContainer container) {
