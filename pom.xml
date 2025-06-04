@@ -51,8 +51,8 @@
             <version>0.1.0</version>
         </dependency>
         <dependency>
-            <artifactId>org.jsoup</artifactId>
-            <groupId>jsoup</groupId>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
             <version>1.20.1</version>
         </dependency>
     </dependencies>
@@ -70,7 +70,7 @@
                         <goal>unpack-dependencies</goal>
                     </goals>
                     <configuration>
-                        <includeGroupIds>vip.floatationdevice, cn.hutool, org.java-websocket, com.github.Trollhunters501</includeGroupIds>
+                        <includeGroupIds>vip.floatationdevice, cn.hutool, org.java-websocket, com.github.Trollhunters501, org.jsoup</includeGroupIds>
                         <outputDirectory>${project.build.directory}/classes</outputDirectory>
                     </configuration>
                 </execution>
