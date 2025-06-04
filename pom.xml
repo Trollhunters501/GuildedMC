@@ -50,6 +50,11 @@
             <artifactId>FaceImageMC</artifactId>
             <version>0.1.0</version>
         </dependency>
+        <dependency>
+            <artifactId>org.jsoup</artifactId>
+            <groupId>jsoup</groupId>
+            <version>1.20.1</version>
+        </dependency>
     </dependencies>
     <build>
     <plugins>

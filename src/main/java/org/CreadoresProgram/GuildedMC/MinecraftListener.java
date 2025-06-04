@@ -83,7 +83,7 @@ public class MinecraftListener implements Listener {
         Jsoup.connect((String) webhookPlayers.get(event.getPlayer().getName())[0]).userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0")
             .ignoreContentType(true).ignoreHttpErrors(true)
             .data("file", "avatar.png", avatarPlayers.get(event.getPlayer().getName()), "image/png")
-            .data("payload_json", gson.toJson(payload));
+            .data("payload_json", gson.toJson(payload)).execute();
     }
 
     private static String textFromContainer(TextContainer container) {
