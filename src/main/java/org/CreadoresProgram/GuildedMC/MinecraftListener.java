@@ -28,6 +28,7 @@ import com.google.gson.Gson;
 public class MinecraftListener implements Listener {
     public Map<String, Object[]> webhookPlayers = new HashMap<>();
     private Map<String, ByteArrayInputStream> avatarPlayers = new HashMap<>();
+    private Gson gson = new Gson();
     public MinecraftListener(){
         // Constructor
     }
